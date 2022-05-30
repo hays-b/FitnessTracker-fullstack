@@ -125,49 +125,55 @@ const MyRoutines = () => {
         </select>
         <button type="submit">Create Routine</button>
       </form>
-      {/* if there are myRoutines to map through, display them */}
-      {myRoutines.length ? (
-        <div id="routineList">
-          <h1>Your Routines</h1>
-          {myRoutines.map((routine, idx) => (
-            <div key={"myRoutines" + idx} className='routine-card'>
-              <h1>Routine: {routine.name}</h1>
-              <h4>{routine.isPublic ? "Public" : "Private"}</h4>
-              <h2>Goal: {routine.goal}</h2>
-              <h3>Activities:</h3>
-              {/* if the routine has activities, map and display them too */}
-              {routine.activities ? (
-                <>
-                  <div id="activityList" className='activity-row'>
-                    {routine.activities.map((activity, idx) => (
-                      <div key={'activity' + idx} className='activity-card'>
-                        <h4>
-                          Activity {idx + 1}: {activity.name}{" "}
-                        </h4>
-                        <p>Description: {activity.description}</p>
-                        <p>Count: {activity.count}</p>
-                        <p>Duration: {activity.duration}</p>
-                        <UpdateActivity routine={routine} activity={activity} />
-                        <button
-                          onClick={() =>
-                            handleActivityRemoval(routine, activity)
-                          }
-                        >
-                          Remove Activity
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                  <UpdateRoutine routine={routine} />
-                  <button onClick={() => handleRoutineDelete(routine)}>
-                    Delete Routine
-                  </button>
-                </>
-              ) : null}
-            </div>
-          ))}
-        </div>
-      ) : null}
+      <div className="routine-col">
+        {/* if there are myRoutines to map through, display them */}
+        {myRoutines.length ? (
+          <div id="routineList">
+            <h1>Your Routines</h1>
+            {myRoutines.map((routine, idx) => (
+              <div key={"myRoutines" + idx} className="routine-card">
+                <h1>Routine: {routine.name}</h1>
+                <h4>{routine.isPublic ? "Public" : "Private"}</h4>
+                <h2>Goal: {routine.goal}</h2>
+                <h3>Activities:</h3>
+                {/* if the routine has activities, map and display them too */}
+                {routine.activities ? (
+                  <>
+                    <div id="activityList" className="activity-row">
+                      {routine.activities.map((activity, idx) => (
+                        <div key={"activity" + idx} className="activity-card">
+                          <h4>
+                            Activity {idx + 1}: {activity.name}{" "}
+                          </h4>
+                          <p>Description: {activity.description}</p>
+                          <p>Sets: {activity.sets}</p>
+                          <p>Reps: {activity.reps}</p>
+                          <p>Duration: {activity.duration}</p>
+                          <UpdateActivity
+                            routine={routine}
+                            activity={activity}
+                          />
+                          <button
+                            onClick={() =>
+                              handleActivityRemoval(routine, activity)
+                            }
+                          >
+                            Remove Activity
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                    <UpdateRoutine routine={routine} />
+                    <button onClick={() => handleRoutineDelete(routine)}>
+                      Delete Routine
+                    </button>
+                  </>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
+      </div>
     </>
   );
 };

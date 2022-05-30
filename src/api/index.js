@@ -219,7 +219,8 @@ export const deleteRoutine = async (routineId, token) => {
 export const addActivityToRoutine = async (
   routineId,
   activityId,
-  count,
+  sets,
+  reps,
   duration,
   token
 ) => {
@@ -234,7 +235,8 @@ export const addActivityToRoutine = async (
         },
         body: JSON.stringify({
           activityId,
-          count,
+          sets,
+          reps,
           duration,
         }),
       }
@@ -249,7 +251,8 @@ export const addActivityToRoutine = async (
 export const updateRoutineActivity = async (
   rouActId,
   token,
-  count,
+  sets,
+  reps,
   duration
 ) => {
   try {
@@ -260,7 +263,8 @@ export const updateRoutineActivity = async (
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        count,
+        sets,
+        reps,
         duration,
       }),
     });

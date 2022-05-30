@@ -19,7 +19,8 @@ const mapActivities = (routines) => {
           id: row.activityId,
           name: row.activityName,
           description: row.activityDescription,
-          count: row.activityCount,
+          sets: row.activitySets,
+          reps: row.activityReps,
           duration: row.activityDuration,
         });
       }

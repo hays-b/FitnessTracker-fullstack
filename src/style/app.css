@@ -1,6 +1,7 @@
 h1 {
     color: rgb(59, 88, 75);
 }
+
 .header {
   position: sticky;
   top: 0;
@@ -52,6 +53,22 @@ a {
   overflow-x: clip;
 }
 
+.back-btn {
+  position: sticky;
+  border: none;
+  color: gray;
+  padding: 1em;
+  border-right: .1em solid gray;
+  border-radius: .1em;
+  margin: .5em;
+  z-index: 0
+}
+
+.back-btn:hover {
+  background-color: lightgray;
+  color: black;
+}
+
 .routine-all {
   width: 90%;
 }
@@ -59,7 +76,7 @@ a {
 .routine-card {
   border-radius: 0.1em;
   margin: 1em 0;
-  padding: 0.5em 1em;
+  padding: 1em 1em;
   background-color: rgb(232, 239, 237);
   background: linear-gradient(
     180deg,
@@ -67,17 +84,51 @@ a {
     rgb(255, 255, 255) 100%
   );
   box-shadow: 0 0 0.1em black;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-card {
+  border-radius: 0.1em;
+  margin: 1em 0;
+  padding: 1em 1em;
+  background-color: rgb(232, 239, 237);
+  background: linear-gradient(
+    180deg,
+    rgb(232, 239, 237) 0%,
+    rgb(255, 255, 255) 100%
+  );
+  box-shadow: 0 0 0.1em black;
+  display: flex;
+  flex-direction: column;
+}
+
+.routine-name {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+.routine-goal {
+  font-weight: bold;
 }
 .routine-card:hover {
   border: 0.1vmin solid white;
   box-shadow: 0 0 0.25em black;
 }
 
+
 .activity-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.act-list {
+  margin-left: .2em;
+  padding-left: .1em;
 }
 
 .activity-card {

@@ -18,7 +18,8 @@ const UpdateRoutine = ({ routine }) => {
   const [activityToAdd, setActivityToAdd] = useState({
     id: "",
     name: "Any",
-    count: "",
+    sets: "",
+    reps: "",
     duration: "",
   });
   const [updateError, setUpdateError] = useState("");
@@ -35,7 +36,8 @@ const UpdateRoutine = ({ routine }) => {
       const activityResult = await addActivityToRoutine(
         routine.id,
         activityToAdd.id,
-        activityToAdd.count,
+        activityToAdd.sets,
+        activityToAdd.reps,
         activityToAdd.duration,
         token
       );
@@ -114,10 +116,18 @@ const UpdateRoutine = ({ routine }) => {
           </select>
           <input
             type="number"
-            placeholder="count"
-            value={activityToAdd.count}
+            placeholder="sets"
+            value={activityToAdd.sets}
             onChange={(event) =>
-              setActivityToAdd({ ...activityToAdd, count: event.target.value })
+              setActivityToAdd({ ...activityToAdd, sets: event.target.value })
+            }
+          />
+           <input
+            type="number"
+            placeholder="reps"
+            value={activityToAdd.reps}
+            onChange={(event) =>
+              setActivityToAdd({ ...activityToAdd, reps: event.target.value })
             }
           />
           <input

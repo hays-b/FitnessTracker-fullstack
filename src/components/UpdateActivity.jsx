@@ -14,7 +14,8 @@ const UpdateActivity = ({ activity }) => {
   const [updateState, setUpdateState] = useState({
     name: activity.name,
     description: activity.description,
-    count: activity.count,
+    sets: activity.sets,
+    reps: activity.reps,
     duration: activity.duration,
   });
 
@@ -28,7 +29,8 @@ const UpdateActivity = ({ activity }) => {
     const otherResult = await updateRoutineActivity(
       activity.routineActivityId,
       token,
-      updateState.count,
+      updateState.sets,
+      updateState.reps,
       updateState.duration
     );
 
@@ -67,10 +69,18 @@ const UpdateActivity = ({ activity }) => {
         />
         <input
           type="text"
-          placeholder={activity.count}
-          value={updateState.count}
+          placeholder={activity.sets}
+          value={updateState.sets}
           onChange={(event) =>
-            setUpdateState({ ...updateState, count: event.target.value })
+            setUpdateState({ ...updateState, sets: event.target.value })
+          }
+        />
+           <input
+          type="text"
+          placeholder={activity.reps}
+          value={updateState.reps}
+          onChange={(event) =>
+            setUpdateState({ ...updateState, reps: event.target.value })
           }
         />
         <input

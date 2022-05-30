@@ -64,7 +64,8 @@ async function getAllRoutines() {
         routines.name AS name,
         routines.goal AS goal,
         activities.id AS "activitiesId",
-        routine_activities.count AS "activityCount",
+        routine_activities.sets AS "activitySets",
+        routine_activities.reps AS "activityReps",
         routine_activities.duration AS "activityDuration"
     FROM routines
     LEFT JOIN users ON routines."creatorId" = users.id
@@ -90,7 +91,8 @@ async function getAllPublicRoutines() {
         activities.id AS "activityId",
         activities.name AS "activityName",
         activities.description AS "activityDescription",
-        routine_activities.count AS "activityCount",
+        routine_activities.sets AS "activitySets",
+        routine_activities.reps AS "activityReps",
         routine_activities.duration AS "activityDuration"
     FROM routines
     LEFT JOIN users ON routines."creatorId" = users.id
@@ -119,7 +121,8 @@ async function getAllRoutinesByUser({ username }) {
         activities.id AS "activityId",
         activities.name AS "activityName",
         activities.description AS "activityDescription",
-        routine_activities.count AS "activityCount",
+        routine_activities.sets AS "activitySets",
+        routine_activities.reps AS "activityReps",
         routine_activities.duration AS "activityDuration"
     FROM routines
     LEFT JOIN users ON routines."creatorId" = users.id
@@ -150,7 +153,8 @@ async function getPublicRoutinesByUser({ username }) {
           activities.id AS "activityId",
         activities.name AS "activityName",
         activities.description AS "activityDescription",
-          routine_activities.count AS "activityCount",
+        routine_activities.sets AS "activitySets",
+        routine_activities.reps AS "activityReps",
           routine_activities.duration AS "activityDuration"
       FROM routines
       LEFT JOIN users ON routines."creatorId" = users.id
@@ -181,7 +185,8 @@ async function getPublicRoutinesByActivity({ id }) {
           activities.id AS "activityId",
         activities.name AS "activityName",
         activities.description AS "activityDescription",
-          routine_activities.count AS "activityCount",
+        routine_activities.sets AS "activitySets",
+        routine_activities.reps AS "activityReps",
           routine_activities.duration AS "activityDuration"
       FROM routines
       LEFT JOIN users ON routines."creatorId" = users.id

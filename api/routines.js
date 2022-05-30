@@ -103,13 +103,14 @@ routinesRouter.delete("/:routineId", requireUser, async (req, res, next) => {
 });
 
 routinesRouter.post("/:routineId/activities", async (req, res, next) => {
-  const { activityId, duration, count } = req.body;
+  const { activityId, duration, sets, reps, } = req.body;
   const { routineId } = req.params;
   const fields = {
     routineId,
     activityId,
     duration,
-    count,
+    sets,
+    reps,
   };
   // RoutActObject was written to account for the keyword "id" that's needed in the getRoutineActivities function
   const RoutActObject = { id: routineId };

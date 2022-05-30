@@ -14,11 +14,12 @@ routineActivitiesRouter.patch(
   async (req, res, next) => {
 
     const { routineActivityId } = req.params;
-    const { count, duration } = req.body;
+    const {sets, reps, duration } = req.body;
 
     const updateFields = {
       id: routineActivityId,
-      count,
+      sets,
+      reps,
       duration,
     };
 

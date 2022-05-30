@@ -62,14 +62,16 @@ const Activities = () => {
       ) : (
         <h3>Sign up to create your own activities!</h3>
       )}
-      <div id="activityList">
+      <div id="activityList" className="routine-col">
         <h1>All Activities</h1>
         {activities.map((activity, idx) => (
-          <div key={"activity" + activity.id}>
-            <h1>{activity.name}</h1>
-            <h4>Description: {activity.description}</h4>
-            {/* <h2>Count: {activity.count}</h2>
+          <div className="routine-all">
+            <div key={"activity" + idx} className="activity-card">
+              <div className='routine-name'>{activity.name}</div>
+              <div className='routine-goal'>Description: {activity.description}</div>
+              {/* <h2>Count: {activity.count}</h2>
             <h3>Duration: {activity.duration}</h3> */}
+            </div>
           </div>
         ))}
       </div>

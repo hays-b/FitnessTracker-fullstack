@@ -11,27 +11,30 @@ const Routines = () => {
       {routines.map((routine, idx) => (
         <div key={"routine" + idx} className="routine-all">
           <p>Created by: {routine.creatorName}</p>
-          <div className="routine-card">
-            <Link to={`/viewroutine=${routine.id}`}>
-            <h2>{routine.name}</h2>
-            <h4>Goal: {routine.goal}</h4>
-            <h3>Activities:</h3>
-            <div id="activityList" className="activity-row">
-              {routine.activities.map((activity, idx) => (
-                <div key={"activity" + idx} className="activity-card">
-                  <h4>
-                    Activity {idx + 1}: {activity.name}{" "}
-                  </h4>
-                  <p>{activity.description}</p>
-                  <div className="activity-row">
-                    <p>Count: {activity.count}</p>
-                    <p>Duration: {activity.duration}</p>
+            <Link to={`/viewroutine=${routine.id}`} className="routine-card">
+              <div className='routine-name'>{routine.name}</div>
+              <div className='routine-goal'>Goal: {routine.goal}</div>
+              <div id="activityList" className="activity-row">
+              <p>Activities include:</p>
+                {routine.activities.map((activity, idx) => (
+                  <div key={"activity" + idx}>
+                    {idx === routine.activities.length - 1
+                      ? <div className='act-list'>{activity.name + " "}</div>
+                      : <div className='act-list'>{activity.name + `, `}</div>}
                   </div>
-                </div>
-              ))}
-            </div>
-          </Link>
-          </div>
+                  //   <h4>
+                  //     Activity {idx + 1}: {activity.name}{" "}
+                  //   </h4>
+                  //   <p>{activity.description}</p>
+                  //   <div className="activity-row">
+                  //     <p>Sets: {activity.sets}</p>
+                  //     <p>Reps: {activity.reps}</p>
+                  //     <p>Duration: {activity.duration}</p>
+                  //   </div>
+                  // </div>
+                ))}
+              </div>
+            </Link>
         </div>
       ))}
     </div>
