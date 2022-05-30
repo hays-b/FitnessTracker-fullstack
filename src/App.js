@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import "./style/app.css";
 import { Routes, Route } from "react-router-dom";
 import {
@@ -12,13 +11,14 @@ import {
   MyRoutines,
   Activities,
   SingleRoutine,
+  UserRoutines,
 } from "./components";
 
 import useAuth from "./hooks/useAuth";
 
 function App() {
-  const { routines, myRoutines } = useAuth();
-  let location = useLocation();
+  const { routines, myRoutines, users } = useAuth();
+  // console.log(users)
 
   return (
     <>
@@ -37,6 +37,14 @@ function App() {
                 key={'SingleRoutine' + idx}
                 path={`/viewroutine=${routine.id}`}
                 element={<SingleRoutine routine={routine} />}
+              />
+            )): null}
+            {Array.isArray(users)
+          ? users?.map((user, idx) => (
+              <Route
+                key={'SingleUser' + idx}
+                path={`/user=${user.id}`}
+                element={<UserRoutines user={user} />}
               />
             )): null}
       </Routes>

@@ -4,6 +4,7 @@ const {
   getUserByUsername,
   createUser,
   getPublicRoutinesByUser,
+  getAllUsers,
 } = require("../db");
 const { requireUser } = require("./utils");
 
@@ -100,6 +101,16 @@ usersRouter.get("/:username/routines", async (req, res, next) => {
     const routines = await getPublicRoutinesByUser(username);
 
     res.send(routines);
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
+
+usersRouter.get("/", async (req, res, next) => {
+  try {
+    const allUsers = await getAllUsers();
+
+    res.send(allUsers);
   } catch ({ name, message }) {
     next({ name, message });
   }

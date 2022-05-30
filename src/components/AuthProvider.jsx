@@ -1,6 +1,6 @@
 import AuthContext from "../AuthContext";
 import { useState, useEffect } from "react";
-import { getMe, getPublicRoutines, getAllActivities, getMyRoutines } from "../api";
+import { getMe, getPublicRoutines, getAllActivities, getMyRoutines, getAllUsers } from "../api";
 
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState("");
@@ -8,6 +8,9 @@ const AuthProvider = ({ children }) => {
   const [routines, setRoutines] = useState([]);
   const [activities, setActivities] = useState([]);
   const [myRoutines, setMyRoutines] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [filterRoutines, setFilterRoutines] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   // sets token
   useEffect(() => {
@@ -38,9 +41,19 @@ const AuthProvider = ({ children }) => {
     const displayRoutines = async () => {
       const data = await getPublicRoutines();
       setRoutines(data);
-      console.log("fetched routines", data)
+      // console.log("fetched routines", data)
     };
     displayRoutines();
+  }, []);
+
+  //gets all users
+  useEffect(() => {
+    const displayUsers = async () => {
+      const data = await getAllUsers();
+      setUsers(data);
+      // console.log("fetched users", data)
+    };
+    displayUsers();
   }, []);
 
   // displays all Activities
@@ -64,9 +77,36 @@ const AuthProvider = ({ children }) => {
     }
   }, [user, token]);
 
+  // search bar
+  useEffect(() => {
+    setFilterRoutines(routines);
+
+    const searchFilter = [];
+    if (routines.length) {
+      // lowercase the query
+      const search = searchQuery.toLowerCase();
+      // lowercase function
+      function tLC(objProp) {
+        return objProp.toLowerCase();
+      }
+
+      routines.forEach((routine) => {
+        if (
+          tLC(routine.name).includes(searchQuery) ||
+            tLC(routine.goal).includes(searchQuery) ||
+            tLC(routine.creatorName).includes(searchQuery)
+        ) {
+          searchFilter.push(routine);
+        }
+      });
+      setFilterRoutines(searchFilter);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [routines, searchQuery]);
+
   return (
     <AuthContext.Provider
-      value={{ user, setUser, token, setToken, routines, setRoutines, activities, setActivities, myRoutines, setMyRoutines }}
+      value={{ user, setUser, token, setToken, routines, setRoutines, activities, setActivities, myRoutines, setMyRoutines, users, setUsers, filterRoutines, setFilterRoutines, searchQuery, setSearchQuery }}
     >
       {children}
     </AuthContext.Provider>

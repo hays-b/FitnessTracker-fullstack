@@ -12,7 +12,13 @@ const useAuth = () => {
     activities,
     setActivities,
     myRoutines,
-    setMyRoutines
+    setMyRoutines,
+    users,
+    setUsers,
+    filterRoutines,
+    setFilterRoutines,
+    searchQuery,
+    setSearchQuery,
   } = useContext(AuthContext);
 
   return {
@@ -25,7 +31,13 @@ const useAuth = () => {
     activities,
     setActivities,
     myRoutines,
-    setMyRoutines
+    setMyRoutines,
+    users,
+    setUsers,
+    filterRoutines,
+    setFilterRoutines,
+    searchQuery,
+    setSearchQuery,
   };
 };
 

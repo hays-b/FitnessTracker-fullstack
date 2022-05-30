@@ -1,5 +1,5 @@
 h1 {
-    color: rgb(59, 88, 75);
+  color: rgb(59, 88, 75);
 }
 
 .header {
@@ -20,8 +20,8 @@ h1 {
 }
 
 a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 .link {
@@ -54,14 +54,14 @@ a {
 }
 
 .back-btn {
-  position: sticky;
+  /* position: sticky; */
   border: none;
   color: gray;
   padding: 1em;
-  border-right: .1em solid gray;
-  border-radius: .1em;
-  margin: .5em;
-  z-index: 0
+  border-right: 0.1em solid gray;
+  border-radius: 0.1em;
+  margin: 0.25em;
+  z-index: 0;
 }
 
 .back-btn:hover {
@@ -83,22 +83,47 @@ a {
     rgb(232, 239, 237) 0%,
     rgb(255, 255, 255) 100%
   );
-  box-shadow: 0 0 0.1em black;
+  box-shadow: inset 0 0 0.1em black;
   display: flex;
   flex-direction: column;
 }
 
-.activity-card {
-  border-radius: 0.1em;
-  margin: 1em 0;
-  padding: 1em 1em;
+.activity-all {
+  width: 30%;
+}
+
+.rou-act-card {
   background-color: rgb(232, 239, 237);
   background: linear-gradient(
     180deg,
     rgb(232, 239, 237) 0%,
     rgb(255, 255, 255) 100%
   );
-  box-shadow: 0 0 0.1em black;
+  /* box-shadow: 0 0 0.1em black; */
+  border: 0.1vmin solid black;
+  border-radius: 1vmin;
+  height: 100%;
+  width: 30%;
+  /* flex-grow: 1; */
+  padding: 0.5em;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-card {
+  background-color: rgb(232, 239, 237);
+  background: linear-gradient(
+    180deg,
+    rgb(232, 239, 237) 0%,
+    rgb(255, 255, 255) 100%
+  );
+  /* box-shadow: 0 0 0.1em black; */
+  border: 0.1vmin solid black;
+  border-radius: 1vmin;
+  height: 100%;
+  padding: 0.5em;
+  margin: 1em;
   display: flex;
   flex-direction: column;
 }
@@ -106,16 +131,23 @@ a {
 .routine-name {
   font-size: large;
   font-weight: bold;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 .routine-goal {
   font-weight: bold;
 }
+
 .routine-card:hover {
-  border: 0.1vmin solid white;
   box-shadow: 0 0 0.25em black;
 }
 
+.single-card:hover {
+  box-shadow: 0 0 0.1em black;
+}
+
+.routine-creator:hover {
+  text-decoration: underline;
+}
 
 .activity-row {
   display: flex;
@@ -127,20 +159,9 @@ a {
 }
 
 .act-list {
-  margin-left: .2em;
-  padding-left: .1em;
+  margin-left: 0.2em;
+  padding-left: 0.1em;
 }
-
-.activity-card {
-  border: 0.1vmin solid black;
-  border-radius: 1vmin;
-  width: 30%;
-  padding: .5em;
-  margin: 1em;
-  display: flex;
-  flex-direction: column;
-}
-
 
 img {
   display: flex;
@@ -149,13 +170,61 @@ img {
   /* border: 5rem; */
 }
 
-input {
-  background-color: rgb(49, 49, 49);
-  color: aliceblue;
+.searchbar {
+  margin: 1rem 3rem 0 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
-button,
-select,
-option {
-  background-color: white;
+.searchbar-input {
+  width: 75%;
+  /* flex-grow: 1; */
+  padding: .5em;
+  display:flex;
+  box-shadow: 0 0 0.1em black;
+  border: none;
+}
+
+.searchbar-btn {
+  margin-left: .075em;
+  padding: .3em 2em;
+  display:flex;
+  background-color: rgb(159, 239, 203);
+  background: linear-gradient(
+    180deg,
+    rgb(159, 239, 203) 0%,
+    rgb(186, 238, 215) 100%
+  );
+  box-shadow: 0 0 0.1em black;
+  border: none;
+}
+
+.searchbar-btn:hover {
+  background-color: rgb(185, 242, 216);
+  background: linear-gradient(
+    180deg,
+    rgb(194, 255, 227) 0%,
+    rgb(186, 238, 215) 100%
+  );
+  box-shadow: 0 0 0.2em black;
+}
+
+.searchbar-btn:active {
+  background-color: rgb(159, 207, 185);
+  background: linear-gradient(
+    180deg,
+    rgb(159, 207, 185) 0%,
+    rgb(141, 184, 164) 100%
+  );
+  box-shadow: inset 0 0 0.1em black;
+}
+
+
+
+
+button {
+  cursor: pointer;
 }

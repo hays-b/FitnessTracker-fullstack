@@ -7,3 +7,4 @@ export { default as Routines } from "./Routines";
 export { default as Logout } from "./Logout";
 export { default as Header } from "./Header";
 export { default as SingleRoutine } from "./SingleRoutine";
+export { default as UserRoutines } from "./UserRoutines";

@@ -70,6 +70,21 @@ export const getMyRoutines = async (username, token) => {
   }
 };
 
+export const getAllUsers = async () => {
+  try {
+    const response = await fetch(`${baseURL}/users`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const getAllActivities = async () => {
   try {
     const response = await fetch(`${baseURL}/activities`, {

@@ -1,16 +1,19 @@
 import React from "react";
 import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom";
+import SearchBar from './SearchBar'
 
 const Routines = () => {
-  const { routines } = useAuth();
+  const { filterRoutines } = useAuth();
 
   return (
+    <>
+    <SearchBar />
     <div id="routineList" className="routine-col">
       <h1>Public Routines</h1>
-      {routines.map((routine, idx) => (
+      {filterRoutines.length ? filterRoutines.map((routine, idx) => (
         <div key={"routine" + idx} className="routine-all">
-          <p>Created by: {routine.creatorName}</p>
+          <Link to={`/user=${routine.creatorId}`} className='routine-creator'>Created by: {routine.creatorName}</Link>
             <Link to={`/viewroutine=${routine.id}`} className="routine-card">
               <div className='routine-name'>{routine.name}</div>
               <div className='routine-goal'>Goal: {routine.goal}</div>
@@ -36,8 +39,9 @@ const Routines = () => {
               </div>
             </Link>
         </div>
-      ))}
+      )): <p>Sorry! We couldn't find what you were looking for.</p>}
     </div>
+    </>
   );
 };
 
