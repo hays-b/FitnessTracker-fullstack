@@ -3,7 +3,7 @@ const usersRouter = express.Router();
 const {
   getUserByUsername,
   createUser,
-  getPublicRoutinesByUser,
+  getAllRoutinesByUser,
   getAllUsers,
 } = require("../db");
 const { requireUser } = require("./utils");
@@ -95,13 +95,21 @@ usersRouter.get("/me", requireUser, async (req, res, next) => {
   });
 });
 
-usersRouter.get("/:username/routines", async (req, res, next) => {
-  const username = req.params;
+usersRouter.get("/:username/routines", requireUser, async (req, res, next) => {
+  const { username } = req.params;
+  const _username = req.user.username;
   try {
-    const routines = await getPublicRoutinesByUser(username);
-
-    res.send(routines);
+    if (username === _username) {
+      const routines = await getAllRoutinesByUser(req.params);
+      res.send(routines);
+    } else {
+      next({
+        name: "IncorrectCredentialsError",
+        message: "You must be logged in as the user you are requesting to see",
+      });
+    }
   } catch ({ name, message }) {
+    console.log('error?')
     next({ name, message });
   }
 });

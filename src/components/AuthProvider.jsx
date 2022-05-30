@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
   const [myRoutines, setMyRoutines] = useState([]);
   const [users, setUsers] = useState([]);
   const [filterRoutines, setFilterRoutines] = useState([]);
+  const [filterActivities, setFilterActivities] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   // sets token
@@ -80,33 +81,47 @@ const AuthProvider = ({ children }) => {
   // search bar
   useEffect(() => {
     setFilterRoutines(routines);
+    setFilterActivities(activities);
 
-    const searchFilter = [];
+    // lowercase the query
+    const search = searchQuery.toLowerCase();
+    // lowercase function
+    function tLC(objProp) {
+      return objProp.toLowerCase();
+    }
+
     if (routines.length) {
-      // lowercase the query
-      const search = searchQuery.toLowerCase();
-      // lowercase function
-      function tLC(objProp) {
-        return objProp.toLowerCase();
-      }
-
+      const searchFilter = [];
       routines.forEach((routine) => {
         if (
-          tLC(routine.name).includes(searchQuery) ||
-            tLC(routine.goal).includes(searchQuery) ||
-            tLC(routine.creatorName).includes(searchQuery)
+          tLC(routine.name).includes(search) ||
+            tLC(routine.goal).includes(search) ||
+            tLC(routine.creatorName).includes(search)
         ) {
           searchFilter.push(routine);
         }
       });
       setFilterRoutines(searchFilter);
     }
+
+    if (activities.length) {
+      const searchFilter = [];
+      activities.forEach((activity) => {
+        if (
+          tLC(activity.name).includes(search) ||
+            tLC(activity.description).includes(search)
+        ) {
+          searchFilter.push(activity);
+        }
+      });
+      setFilterActivities(searchFilter);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [routines, searchQuery]);
+  }, [routines, activities, searchQuery]);
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, token, setToken, routines, setRoutines, activities, setActivities, myRoutines, setMyRoutines, users, setUsers, filterRoutines, setFilterRoutines, searchQuery, setSearchQuery }}
+      value={{ user, setUser, token, setToken, routines, setRoutines, activities, setActivities, myRoutines, setMyRoutines, users, setUsers, filterRoutines, setFilterRoutines, filterActivities, setFilterActivities, searchQuery, setSearchQuery }}
     >
       {children}
     </AuthContext.Provider>

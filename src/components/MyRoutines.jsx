@@ -1,17 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   createRoutine,
-  deleteRoutine,
-  deleteRoutineActivity,
   getMyRoutines,
   getPublicRoutines,
 } from "../api";
-import UpdateRoutine from "./UpdateRoutine";
-import UpdateActivity from "./UpdateActivity";
 import useAuth from "../hooks/useAuth";
 
 const MyRoutines = () => {
-  const { token, myRoutines, setMyRoutines, routines, setRoutines, user } =
+  const { token, myRoutines, setMyRoutines, setRoutines, user } =
     useAuth();
 
   const [formState, setFormState] = useState({
@@ -20,51 +17,6 @@ const MyRoutines = () => {
     isPublic: false,
   });
   const [createError, setCreateError] = useState("");
-
-  // After deleting the routine, this function filters it out of the useStates
-  const handleRoutineDelete = async (routineToDelete) => {
-    await deleteRoutine(routineToDelete.id, token);
-
-    setMyRoutines(
-      myRoutines.filter((routine) => routine.id !== routineToDelete.id)
-    );
-    if (routineToDelete.isPublic) {
-      setRoutines(
-        routines.filter((routine) => routine.id !== routineToDelete.id)
-      );
-    }
-  };
-
-  // After removing the activity from the routine, this function filters the selected routine out of the useStates, mutates the activities list, and inserts it back in.
-  const handleActivityRemoval = async (selectedRoutine, activityToDelete) => {
-    await deleteRoutineActivity(activityToDelete.routineActivityId, token);
-
-    const newMyRoutines = await getMyRoutines(user.username, token);
-    const newRoutines = await getPublicRoutines();
-    setMyRoutines(newMyRoutines);
-    setRoutines(newRoutines);
-
-    // console.log("before i filter myroutines: ", myRoutines);
-    // setMyRoutines(
-    //   myRoutines.filter((routine) => routine.id !== selectedRoutine.id)
-    // );
-    // console.log("after i filter myroutines: ", myRoutines);
-    // if (selectedRoutine.isPublic) {
-    //   setRoutines(
-    //     routines.filter((routine) => routine.id !== selectedRoutine.id)
-    //   );
-    // }
-
-    // selectedRoutine.activities.filter(
-    //   (activity) =>
-    //     activity.routineActivityId !== activityToDelete.routineActivityId
-    // );
-
-    // setMyRoutines([...myRoutines, selectedRoutine]);
-    // if (selectedRoutine.isPublic) {
-    //   setRoutines([...routines, selectedRoutine]);
-    // }
-  };
 
   return (
     <>
@@ -149,24 +101,10 @@ const MyRoutines = () => {
                           <p>Sets: {activity.sets}</p>
                           <p>Reps: {activity.reps}</p>
                           <p>Duration: {activity.duration}</p>
-                          <UpdateActivity
-                            routine={routine}
-                            activity={activity}
-                          />
-                          <button
-                            onClick={() =>
-                              handleActivityRemoval(routine, activity)
-                            }
-                          >
-                            Remove Activity
-                          </button>
                         </div>
                       ))}
                     </div>
-                    <UpdateRoutine routine={routine} />
-                    <button onClick={() => handleRoutineDelete(routine)}>
-                      Delete Routine
-                    </button>
+                    <Link to={`/editroutine=${routine.id}`}>Edit Routine</Link>
                   </>
                 ) : null}
               </div>
@@ -179,7 +117,3 @@ const MyRoutines = () => {
 };
 
 export default MyRoutines;
-
-// for each routine which is owned by me I should
-// be able to add an activity to a routine via a small form which has a dropdown for all activities, an inputs for count and duration
-// be able to update the duration or count of any activity on the routine

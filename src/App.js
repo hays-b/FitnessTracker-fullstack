@@ -12,13 +12,14 @@ import {
   Activities,
   SingleRoutine,
   UserRoutines,
+  EditRoutine
 } from "./components";
 
 import useAuth from "./hooks/useAuth";
 
 function App() {
   const { routines, myRoutines, users } = useAuth();
-  // console.log(users)
+  // console.log(myRoutines)
 
   return (
     <>
@@ -45,6 +46,14 @@ function App() {
                 key={'SingleUser' + idx}
                 path={`/user=${user.id}`}
                 element={<UserRoutines user={user} />}
+              />
+            )): null}
+            {Array.isArray(myRoutines)
+          ? myRoutines?.map((routine, idx) => (
+              <Route
+                key={'EditRoutine' + idx}
+                path={`/editroutine=${routine.id}`}
+                element={<EditRoutine routine={routine} />}
               />
             )): null}
       </Routes>

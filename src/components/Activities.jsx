@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { createActivity } from "../api";
 import useAuth from "../hooks/useAuth";
+import SearchBar from "./SearchBar";
 
 const Activities = () => {
-  const { token, activities, setActivities } = useAuth();
+  const { token, filterActivities, activities, setActivities } = useAuth();
 
   const [formState, setFormState] = useState({
     name: "",
@@ -13,6 +14,8 @@ const Activities = () => {
 
   return (
     <>
+    <SearchBar />
+    <div className='activities-col'>
       {token ? (
         <>
           <h3>Create your own activity here!</h3>
@@ -59,12 +62,10 @@ const Activities = () => {
             <button type="submit">Post</button>
           </form>
         </>
-      ) : (
-        <h3>Sign up to create your own activities!</h3>
-      )}
+      ) : null}
         <h1>All Activities</h1>
       <div id="activityList" className="activity-row">
-        {activities.map((activity, idx) => (
+        {Array.isArray(filterActivities) && filterActivities.length ?filterActivities.map((activity, idx) => (
           <div key={"activity" + idx} className="activity-all">
             <div className="activity-card">
               <div className='routine-name'>{activity.name}</div>
@@ -73,7 +74,8 @@ const Activities = () => {
             <h3>Duration: {activity.duration}</h3> */}
             </div>
           </div>
-        ))}
+        )): <p>Sorry! We couldn't find what you were looking for.</p>}
+      </div>
       </div>
     </>
   );

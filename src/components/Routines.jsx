@@ -11,7 +11,7 @@ const Routines = () => {
     <SearchBar />
     <div id="routineList" className="routine-col">
       <h1>Public Routines</h1>
-      {filterRoutines.length ? filterRoutines.map((routine, idx) => (
+      {Array.isArray(filterRoutines) && filterRoutines.length ? filterRoutines.map((routine, idx) => (
         <div key={"routine" + idx} className="routine-all">
           <Link to={`/user=${routine.creatorId}`} className='routine-creator'>Created by: {routine.creatorName}</Link>
             <Link to={`/viewroutine=${routine.id}`} className="routine-card">
@@ -19,7 +19,7 @@ const Routines = () => {
               <div className='routine-goal'>Goal: {routine.goal}</div>
               <div id="activityList" className="activity-row">
               <p>Activities include:</p>
-                {routine.activities.map((activity, idx) => (
+                {routine.activities?.map((activity, idx) => (
                   <div key={"activity" + idx}>
                     {idx === routine.activities.length - 1
                       ? <div className='act-list'>{activity.name + " "}</div>

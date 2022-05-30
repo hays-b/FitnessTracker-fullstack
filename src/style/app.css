@@ -88,6 +88,15 @@ a {
   flex-direction: column;
 }
 
+.activities-col {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .activity-all {
   width: 30%;
 }

@@ -17,6 +17,8 @@ const useAuth = () => {
     setUsers,
     filterRoutines,
     setFilterRoutines,
+    filterActivities,
+    setFilterActivities,
     searchQuery,
     setSearchQuery,
   } = useContext(AuthContext);
@@ -36,6 +38,8 @@ const useAuth = () => {
     setUsers,
     filterRoutines,
     setFilterRoutines,
+    filterActivities,
+    setFilterActivities,
     searchQuery,
     setSearchQuery,
   };
