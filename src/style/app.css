@@ -1,0 +1,110 @@
+h1 {
+    color: rgb(59, 88, 75);
+}
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
+  background-color: rgb(159, 239, 203);
+  background: linear-gradient(
+    180deg,
+    rgb(159, 239, 203) 0%,
+    rgb(186, 238, 215) 100%
+  );
+  box-shadow: 0.1em 0 0.1em black;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.link {
+  color: black;
+  font-size: 1rem;
+  height: 100%;
+  padding: 1.5rem 2rem;
+  text-decoration: none;
+}
+
+.link:hover {
+  background: rgb(0, 0, 0, 0.1);
+}
+
+.link:active {
+  background: rgb(0, 0, 0, 0.2);
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.routine-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: clip;
+}
+
+.routine-all {
+  width: 90%;
+}
+
+.routine-card {
+  border-radius: 0.1em;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background-color: rgb(232, 239, 237);
+  background: linear-gradient(
+    180deg,
+    rgb(232, 239, 237) 0%,
+    rgb(255, 255, 255) 100%
+  );
+  box-shadow: 0 0 0.1em black;
+}
+.routine-card:hover {
+  border: 0.1vmin solid white;
+  box-shadow: 0 0 0.25em black;
+}
+
+.activity-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.activity-card {
+  border: 0.1vmin solid black;
+  border-radius: 1vmin;
+  width: 30%;
+  padding: .5em;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+
+img {
+  display: flex;
+  flex-grow: 1;
+  margin-top: 1.5vh;
+  /* border: 5rem; */
+}
+
+input {
+  background-color: rgb(49, 49, 49);
+  color: aliceblue;
+}
+
+button,
+select,
+option {
+  background-color: white;
+}
