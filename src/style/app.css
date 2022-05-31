@@ -98,6 +98,7 @@ a {
 }
 
 .activity-all {
+  margin: 1em;
   width: 30%;
 }
 
@@ -111,9 +112,9 @@ a {
   /* box-shadow: 0 0 0.1em black; */
   border: 0.1vmin solid black;
   border-radius: 1vmin;
-  height: 100%;
-  width: 30%;
   /* flex-grow: 1; */
+  /* height: 100%; */
+  width: 30%;
   padding: 0.5em;
   margin: 1em;
   display: flex;
@@ -146,12 +147,17 @@ a {
   font-weight: bold;
 }
 
+.pub-priv {
+  display: flex;
+  justify-content: space-between;
+}
+
 .routine-card:hover {
   box-shadow: 0 0 0.25em black;
 }
 
 .single-card:hover {
-  box-shadow: 0 0 0.1em black;
+  box-shadow: inset 0 0 0.1em black;
 }
 
 .routine-creator:hover {
@@ -162,9 +168,49 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+  align-items: stretch;
+}
+
+.inner-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.edit-routine-link {
+  width: 70%;
+  margin: .5em;
+  padding: .5em;
+  /* border: .1em solid black; */
+  align-self: center;
+  text-align: center;
+  background-color: rgb(159, 239, 203);
+  background: linear-gradient(
+    180deg,
+    rgb(159, 239, 203) 0%,
+    rgb(186, 238, 215) 100%
+  );
+  box-shadow: 0 0 0.1em black;
+}
+
+.edit-routine-link:hover {
+  background-color: rgb(185, 242, 216);
+  background: linear-gradient(
+    180deg,
+    rgb(194, 255, 227) 0%,
+    rgb(186, 238, 215) 100%
+  );
+  box-shadow: 0 0 0.2em black;
+}
+
+.edit-routine-link:active {
+  background-color: rgb(159, 207, 185);
+  background: linear-gradient(
+    180deg,
+    rgb(159, 207, 185) 0%,
+    rgb(141, 184, 164) 100%
+  );
+  box-shadow: inset 0 0 0.1em black;
 }
 
 .act-list {
@@ -236,4 +282,30 @@ img {
 
 button {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
+  .rou-act-card {
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1106px) {
+  .rou-act-card {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .activity-all {
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1106px) {
+  .activity-all {
+    width: 45%;
+  }
 }

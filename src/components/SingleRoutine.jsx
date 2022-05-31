@@ -23,17 +23,17 @@ const Routines = ({ routine }) => {
         <div className="routine-all">
         <Link to={`/user=${routine.creatorId}`} className='routine-creator'>Created by: {routine.creatorName}</Link>
           <div className="routine-card single-card">
-            <h2>{routine.name}</h2>
-            <h4>Goal: {routine.goal}</h4>
+            <h1>{routine.name}</h1>
+            <h4>{routine.goal}</h4>
             <h3>Activities:</h3>
-            <div id="activityList" className="activity-row">
+            <div className="activity-row">
               {routine.activities.map((activity, idx) => (
                 <div key={"activity" + idx} className="rou-act-card">
                   <h4>
-                    Activity {idx + 1}: {activity.name}{" "}
+                    {idx + 1}: {activity.name}{" "}
                   </h4>
                   <p>{activity.description}</p>
-                  <div className="activity-row">
+                  <div className="inner-row">
                     <p>Sets: {activity.sets}</p>
                     <p>Reps: {activity.reps}</p>
                     <p>Duration: {activity.duration} min</p>

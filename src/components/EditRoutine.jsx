@@ -8,8 +8,10 @@ import {
 import UpdateRoutine from "./UpdateRoutine";
 import UpdateActivity from "./UpdateActivity";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
-const EditRoutine = ({routine}) => {
+const EditRoutine = ({ routine }) => {
+  const navigate = useNavigate();
   const { token, myRoutines, setMyRoutines, routines, setRoutines, user } =
     useAuth();
 
@@ -39,20 +41,25 @@ const EditRoutine = ({routine}) => {
 
   return (
     <>
-      <div className="routine-card">
-        <h1>Routine: {routine.name}</h1>
-        <h4>{routine.isPublic ? "Public" : "Private"}</h4>
-        <h2>Goal: {routine.goal}</h2>
-        <h3>Activities:</h3>
-        {/* if the routine has activities, map and display them too */}
+      <button
+        className="back-btn"
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        {"< "}Back
+      </button>
+      <div className="routine-card single-card">
+        <UpdateRoutine routine={routine} />
         {routine.activities ? (
           <>
-           <UpdateRoutine routine={routine} />
+            {/* if the routine has activities, map and display them too */}
+            <h3>Activities:</h3>
             <div id="activityList" className="activity-row">
               {routine.activities.map((activity, idx) => (
                 <div key={"activity" + idx} className="activity-card">
                   <h4>
-                    Activity {idx + 1}: {activity.name}{" "}
+                    {idx + 1}: {activity.name}{" "}
                   </h4>
 
                   <UpdateActivity routine={routine} activity={activity} />
