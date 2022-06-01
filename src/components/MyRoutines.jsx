@@ -15,7 +15,7 @@ const MyRoutines = () => {
 
   return (
     <>
-      <div id="routineList" className="routine-col">
+      <div className="routine-col">
         <form
           className="create-activity"
           onSubmit={async (event) => {

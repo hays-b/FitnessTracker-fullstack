@@ -49,33 +49,37 @@ const EditRoutine = ({ routine }) => {
       >
         {"< "}Back
       </button>
-      <div className="routine-card single-card">
-        <UpdateRoutine routine={routine} />
-        {routine.activities ? (
-          <>
-            {/* if the routine has activities, map and display them too */}
-            <h3>Activities:</h3>
-            <div id="activityList" className="activity-row">
-              {routine.activities.map((activity, idx) => (
-                <div key={"activity" + idx} className="activity-card">
-                  <h4>
-                    {idx + 1}: {activity.name}{" "}
-                  </h4>
+      <div className="routine-col">
+        <div className="routine-all">
+          <div className="routine-card single-card">
+            <UpdateRoutine routine={routine} />
+            {routine.activities ? (
+              <>
+                {/* if the routine has activities, map and display them too */}
+                <h3>Activities:</h3>
+                <div className="activity-row">
+                  {routine.activities.map((activity, idx) => (
+                    <div key={"activity" + idx} className="edit-activity-card">
+                      <h4>
+                        {idx + 1}: {activity.name}{" "}
+                      </h4>
 
-                  <UpdateActivity routine={routine} activity={activity} />
-                  <button
-                    onClick={() => handleActivityRemoval(routine, activity)}
-                  >
-                    Remove Activity
-                  </button>
+                      <UpdateActivity routine={routine} activity={activity} />
+                      <button
+                        onClick={() => handleActivityRemoval(routine, activity)}
+                      >
+                        Remove Activity
+                      </button>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <button onClick={() => handleRoutineDelete(routine)}>
-              Delete Routine
-            </button>
-          </>
-        ) : null}
+                <button onClick={() => handleRoutineDelete(routine)}>
+                  Delete Routine
+                </button>
+              </>
+            ) : null}
+          </div>
+        </div>
       </div>
     </>
   );

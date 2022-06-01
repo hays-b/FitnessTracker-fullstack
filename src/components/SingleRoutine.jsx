@@ -19,7 +19,7 @@ const Routines = ({ routine }) => {
       >
         {'< '}Back
       </button>
-      <div id="routineList" className="routine-col">
+      <div className="routine-col">
         <div className="routine-all">
         <Link to={`/user=${routine.creatorId}`} className='routine-creator'>Created by: {routine.creatorName}</Link>
           <div className="routine-card single-card">

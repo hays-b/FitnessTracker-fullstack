@@ -67,30 +67,44 @@ const UpdateActivity = ({ activity }) => {
             setUpdateState({ ...updateState, description: event.target.value })
           }
         />
-        <input
-          type="text"
-          placeholder={activity.sets}
-          value={updateState.sets}
-          onChange={(event) =>
-            setUpdateState({ ...updateState, sets: event.target.value })
-          }
-        />
-           <input
-          type="text"
-          placeholder={activity.reps}
-          value={updateState.reps}
-          onChange={(event) =>
-            setUpdateState({ ...updateState, reps: event.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder={activity.duration}
-          value={updateState.duration}
-          onChange={(event) =>
-            setUpdateState({ ...updateState, duration: event.target.value })
-          }
-        />
+        <div className="inner-row">
+          <div>
+            <label htmlFor="sets">Sets: </label>
+            <input
+              name="sets"
+              type="text"
+              placeholder={activity.sets}
+              value={updateState.sets}
+              onChange={(event) =>
+                setUpdateState({ ...updateState, sets: event.target.value })
+              }
+            />
+          </div>
+          <div>
+            <label htmlFor="reps">Reps: </label>
+            <input
+              name="reps"
+              type="text"
+              placeholder={activity.reps}
+              value={updateState.reps}
+              onChange={(event) =>
+                setUpdateState({ ...updateState, reps: event.target.value })
+              }
+            />
+          </div>
+          <div>
+            <label htmlFor="duration">Duration: </label>
+            <input
+              name="duration"
+              type="text"
+              placeholder={activity.duration}
+              value={updateState.duration}
+              onChange={(event) =>
+                setUpdateState({ ...updateState, duration: event.target.value })
+              }
+            />
+          </div>
+        </div>
         <button type="submit">Update Activity</button>
       </form>
     </>
