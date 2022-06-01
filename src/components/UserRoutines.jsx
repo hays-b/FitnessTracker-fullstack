@@ -6,11 +6,9 @@ import { useNavigate } from "react-router-dom";
 const Routines = ({ user }) => {
   const navigate = useNavigate();
   const { routines } = useAuth();
-  console.log(user, routines)
   const userRoutines = routines.filter(
     (routine) => routine.creatorId === user.id
   );
-  console.log(userRoutines)
 
   return (
     <>

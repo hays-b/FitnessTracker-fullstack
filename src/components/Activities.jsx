@@ -18,30 +18,31 @@ const Activities = () => {
     <div className='activities-col'>
       {token ? (
         <>
-          <h3>Create your own activity here!</h3>
-          <form
+          <form className='create-activity'
             onSubmit={async (event) => {
               event.preventDefault();
               const result = await createActivity(
                 token,
                 formState.name,
                 formState.description
-              );
-              if (result.error) {
-                // console.log("error", result);
-                setCustomError(result.error);
-              } else {
-                setCustomError("");
-                setActivities([...activities, result]);
-                setFormState({
-                  name: "",
-                  description: "",
-                });
-              }
-            }}
-          >
+                );
+                if (result.error) {
+                  // console.log("error", result);
+                  setCustomError(result.error);
+                } else {
+                  setCustomError("");
+                  setActivities([...activities, result]);
+                  setFormState({
+                    name: "",
+                    description: "",
+                  });
+                }
+              }}
+              >
+            <h4 className='create-title'>Create your own activity here!</h4>
             {customError ? <h3>Unable to post: {customError}</h3> : null}
             <input
+            className='create-name'
               type="text"
               placeholder="Name"
               value={formState.name}
@@ -51,6 +52,7 @@ const Activities = () => {
               required
             />
             <input
+            className='create-description'
               type="text"
               placeholder="Description"
               value={formState.description}
@@ -59,7 +61,9 @@ const Activities = () => {
               }
               required
             />
-            <button type="submit">Post</button>
+            <button
+            className='create-post'
+            type="submit">Post</button>
           </form>
         </>
       ) : null}

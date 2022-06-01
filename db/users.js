@@ -19,6 +19,44 @@ async function createUser({ username, password }) {
   }
 }
 
+async function updateUsername(id, username) {
+  try {
+    const {
+      rows: [user],
+    } = await client.query(
+      `
+        UPDATE users
+        SET username=$1
+        WHERE id=$2
+        RETURNING id, username;
+      `, [username, id]
+    );
+
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function updatePassword(id, password) {
+  try {
+    const {
+      rows: [user],
+    } = await client.query(
+      `
+        UPDATE users
+        SET password=$1
+        WHERE id=$2
+        RETURNING id, username;
+      `, [password, id]
+    );
+
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getUser({ username, password }) {
   try {
     const {
@@ -82,7 +120,7 @@ async function getUserByUsername(username) {
 async function getAllUsers() {
   try {
     const { rows } = await client.query(
-      `SELECT *
+      `SELECT id, username
           FROM users;
         `
     );
@@ -95,6 +133,8 @@ async function getAllUsers() {
 
 module.exports = {
   createUser,
+  updateUsername,
+  updatePassword,
   getUser,
   getUserById,
   getUserByUsername,

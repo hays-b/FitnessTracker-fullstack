@@ -16,8 +16,8 @@ const MyRoutines = () => {
   return (
     <>
       <div id="routineList" className="routine-col">
-        <h3>Create a new routine here!</h3>
         <form
+          className="create-activity"
           onSubmit={async (event) => {
             event.preventDefault();
             const result = await createRoutine(
@@ -41,19 +41,36 @@ const MyRoutines = () => {
             }
           }}
         >
+          <h3 className="create-title">Create a new routine here!</h3>
           {createError ? (
             <h3>Unable to create routine: {createError}</h3>
           ) : null}
+          <div className="pub-priv">
+            <input
+              className="create-name"
+              type="text"
+              placeholder="Name"
+              value={formState.name}
+              onChange={(event) =>
+                setFormState({ ...formState, name: event.target.value })
+              }
+              required
+            />
+            <select
+            className='create-name'
+              name="isPublic"
+              id="select-public"
+              value={formState.isPublic}
+              onChange={(e) =>
+                setFormState({ ...formState, isPublic: e.target.value })
+              }
+            >
+              <option value="false">Private</option>
+              <option value="true">Public</option>
+            </select>
+          </div>
           <input
-            type="text"
-            placeholder="Name"
-            value={formState.name}
-            onChange={(event) =>
-              setFormState({ ...formState, name: event.target.value })
-            }
-            required
-          />
-          <input
+            className="create-description"
             type="text"
             placeholder="goal"
             value={formState.goal}
@@ -62,18 +79,9 @@ const MyRoutines = () => {
             }
             required
           />
-          <select
-            name="isPublic"
-            id="select-public"
-            value={formState.isPublic}
-            onChange={(e) =>
-              setFormState({ ...formState, isPublic: e.target.value })
-            }
-          >
-            <option value="false">Private</option>
-            <option value="true">Public</option>
-          </select>
-          <button type="submit">Create Routine</button>
+          <button className="create-post" type="submit">
+            Create Routine
+          </button>
         </form>
         <div className="routine-col">
           {/* if there are myRoutines to map through, display them */}
@@ -83,9 +91,9 @@ const MyRoutines = () => {
               {myRoutines.map((routine, idx) => (
                 <div key={"myRoutines" + idx} className="routine-all">
                   <div className="routine-card single-card">
-                    <div className='pub-priv'>
-                    <h1>{routine.name}</h1>
-                    <h4>{routine.isPublic ? "Public" : "Private"}</h4>
+                    <div className="pub-priv">
+                      <h1>{routine.name}</h1>
+                      <h4>{routine.isPublic ? "Public" : "Private"}</h4>
                     </div>
                     <h2>{routine.goal}</h2>
                     <h3>Activities:</h3>
@@ -103,14 +111,17 @@ const MyRoutines = () => {
                               </h4>
                               <p>Description: {activity.description}</p>
                               <div className="inner-row">
-                              <p>Sets: {activity.sets}</p>
-                              <p>Reps: {activity.reps}</p>
-                              <p>Duration: {activity.duration}</p>
+                                <p>Sets: {activity.sets}</p>
+                                <p>Reps: {activity.reps}</p>
+                                <p>Duration: {activity.duration}</p>
                               </div>
                             </div>
                           ))}
                         </div>
-                        <Link to={`/editroutine=${routine.id}`} className='edit-routine-link'>
+                        <Link
+                          to={`/editroutine=${routine.id}`}
+                          className="edit-routine-link"
+                        >
                           Edit Routine
                         </Link>
                       </>

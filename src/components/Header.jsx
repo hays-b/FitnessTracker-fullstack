@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Header = () => {
-    const { token, user } = useAuth();
+    const { token } = useAuth();
   let location = useLocation();
 
 
@@ -47,7 +47,7 @@ const Header = () => {
                 location.pathname === "/logout" ? "active link" : "link"
               }
             >
-              Logout
+              Account
             </Link>
           </>
         ) : (

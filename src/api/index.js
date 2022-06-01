@@ -38,6 +38,44 @@ export const loginUser = async (username, password) => {
   }
 };
 
+export const changeUsername = async (token, username) => {
+  try {
+    const response = await fetch(`${baseURL}/users/username`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        username
+      }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
+
+export const changePassword = async (token, password) => {
+  try {
+    const response = await fetch(`${baseURL}/users/username`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        password
+      }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
+
 export const getMe = async (token) => {
   try {
     const response = await fetch(`${baseURL}/users/me`, {

@@ -3,6 +3,8 @@ const usersRouter = express.Router();
 const {
   getUserByUsername,
   createUser,
+  updateUsername,
+  updatePassword,
   getAllRoutinesByUser,
   getAllUsers,
 } = require("../db");
@@ -88,6 +90,46 @@ usersRouter.post("/login", async (req, res, next) => {
   }
 });
 
+usersRouter.patch("/username", requireUser, async (req, res, next) => {
+  const { username } = req.body;
+
+  try {
+    const _user = await getUserByUsername(username);
+
+    if (!_user) {
+      const user = await updateUsername(req.user.id, username);
+      res.send(user);
+    } else {
+      res.status(401);
+      next({
+        name: "UserExistsError",
+        message: "A user by that username already exists",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+usersRouter.patch("/password", requireUser, async (req, res, next) => {
+  const { password } = req.body;
+
+  try {
+    if (password.length >= 8) {
+      const user = await updatePassword(req.user.id, password);
+      res.send(user);
+    } else {
+      res.status(401);
+      next({
+        name: "PasswordTooShort",
+        message: "password not long enough",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 usersRouter.get("/me", requireUser, async (req, res, next) => {
   res.send({
     id: req.user.id,
@@ -109,7 +151,7 @@ usersRouter.get("/:username/routines", requireUser, async (req, res, next) => {
       });
     }
   } catch ({ name, message }) {
-    console.log('error?')
+    console.log("error?");
     next({ name, message });
   }
 });
