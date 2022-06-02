@@ -41,6 +41,7 @@ usersRouter.post("/register", async (req, res, next) => {
       if (userAlreadyExists) {
         res.status(401);
         next({
+          error: true,
           name: "UserExistsError",
           message: "A user by that username already exists",
         });
@@ -49,6 +50,7 @@ usersRouter.post("/register", async (req, res, next) => {
       if (password.length < 8) {
         res.status(401);
         next({
+          error: true,
           name: "PasswordTooShort",
           message: "password not long enough",
         });
@@ -67,6 +69,7 @@ usersRouter.post("/login", async (req, res, next) => {
   // request must have both
   if (!username || !password) {
     next({
+      error: true,
       name: "MissingCredentialsError",
       message: "Please supply both a username and password",
     });
@@ -80,6 +83,7 @@ usersRouter.post("/login", async (req, res, next) => {
       // create token & return to user
       res.send({ message: "you're logged in!", token });
     } else {
+      res.status(401);
       next({
         name: "IncorrectCredentialsError",
         message: "Username or password is incorrect",
@@ -102,6 +106,7 @@ usersRouter.patch("/username", requireUser, async (req, res, next) => {
     } else {
       res.status(401);
       next({
+        error: true,
         name: "UserExistsError",
         message: "A user by that username already exists",
       });
@@ -121,7 +126,7 @@ usersRouter.patch("/password", requireUser, async (req, res, next) => {
     } else {
       res.status(401);
       next({
-        name: "PasswordTooShort",
+        name: "PasswordTooShortError",
         message: "password not long enough",
       });
     }
@@ -145,6 +150,7 @@ usersRouter.get("/:username/routines", requireUser, async (req, res, next) => {
       const routines = await getAllRoutinesByUser(req.params);
       res.send(routines);
     } else {
+      res.status(401);
       next({
         name: "IncorrectCredentialsError",
         message: "You must be logged in as the user you are requesting to see",

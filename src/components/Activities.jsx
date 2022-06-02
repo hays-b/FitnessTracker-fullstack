@@ -26,9 +26,9 @@ const Activities = () => {
                 formState.name,
                 formState.description
                 );
-                if (result.error) {
-                  // console.log("error", result);
-                  setCustomError(result.error);
+                if (result.message) {
+                  console.log("error", result);
+                  setCustomError(result.message);
                 } else {
                   setCustomError("");
                   setActivities([...activities, result]);

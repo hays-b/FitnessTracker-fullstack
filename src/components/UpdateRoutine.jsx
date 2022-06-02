@@ -43,9 +43,9 @@ const UpdateRoutine = ({ routine }) => {
       );
       console.log(activityResult);
     }
-    if (result.error) {
+    if (result.message) {
       console.log("error", result);
-      setUpdateError(result.error);
+      setUpdateError(result.message);
     } else {
       setUpdateError("");
 

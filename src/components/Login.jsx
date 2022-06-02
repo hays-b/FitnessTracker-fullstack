@@ -13,16 +13,18 @@ const Login = () => {
   const [customError, setCustomError] = useState("");
 
   return (
-    <div>
+    <div className='routine-col'>
       <form
+      className='create-activity'
         onSubmit={async (event) => {
           event.preventDefault();
 
           const result = await loginUser(username, password);
-          if (result.error) {
+          if (result.name) {
             console.log("error", result);
-            setCustomError(result.error);
+            setCustomError(result.message);
           } else {
+            console.log("error", result);
             localStorage.setItem("token", result.token);
             setToken(result.token);
 
@@ -32,6 +34,7 @@ const Login = () => {
       >
         {customError ? <h3>Unable to create account: {customError}</h3> : null}
         <input
+        className='create-name'
           value={username}
           type="text"
           placeholder="username"
@@ -41,6 +44,7 @@ const Login = () => {
           required
         />
         <input
+        className='create-name'
           value={password}
           type="password"
           placeholder="password"
@@ -51,7 +55,8 @@ const Login = () => {
           pattern=".{8,}"
           title="8 characters minimum"
         />
-        <button type="submit">Log In</button>
+        <button className='create-post'
+        type="submit">Log In</button>
       </form>
     </div>
   );

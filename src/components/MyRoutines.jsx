@@ -26,9 +26,8 @@ const MyRoutines = () => {
               formState.goal,
               formState.isPublic
             );
-            if (result.error) {
-              console.log("error", result);
-              setCreateError(result.error);
+            if (result.message) {
+              setCreateError(result.message);
             } else {
               setCreateError("");
               // setMyRoutines([...myRoutines, result]);

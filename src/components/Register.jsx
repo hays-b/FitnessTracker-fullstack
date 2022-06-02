@@ -15,16 +15,17 @@ const Register = () => {
   // const history = useHistory();
 
   return (
-    <div>
+    <div className='routine-col'>
       <form
+      className='create-activity'
         onSubmit={async (e) => {
           e.preventDefault();
 
           const result = await registerUser(username, password);
           console.log(result.token);
-          if (result.error) {
+          if (result.name) {
             console.log("error", result);
-            setCustomError(result.error);
+            setCustomError(result.message);
           } else {
             localStorage.setItem("token", result.token);
             setToken(result.token);
@@ -35,6 +36,7 @@ const Register = () => {
       >
         {customError ? <h3>Unable to create account: {customError}</h3> : null}
         <input
+        className='create-name'
           value={username}
           type="text"
           placeholder="username"
@@ -44,6 +46,7 @@ const Register = () => {
           required
         />
         <input
+        className='create-name'
           value={password}
           type="password"
           placeholder="password"
@@ -54,7 +57,8 @@ const Register = () => {
           pattern=".{8,}"
           title="8 characters minimum"
         />
-        <button type="submit">Sign Up</button>
+        <button className='create-post'
+        type="submit">Sign Up</button>
       </form>
     </div>
   );
