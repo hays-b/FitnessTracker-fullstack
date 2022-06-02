@@ -43,10 +43,11 @@ const Logout = () => {
   };
 
   return (
-    <>
+    <div className='routine-col'>
       <h1>Welcome, {user.username}</h1>
       {/* Update Username */}
       <form
+      className='routine-all'
         onSubmit={async (e) => {
           e.preventDefault();
           handleChangeUsername();
@@ -56,17 +57,19 @@ const Logout = () => {
           <h3>Unable to change username: {usernameError}</h3>
         ) : null}
         <input
-          // className='create-description'
+          className='create-name'
           type="text"
           placeholder="Username"
           value={usernameState}
           onChange={(event) => setUsernameState(event.target.value)}
           required
         />
-        <button type="submit">Change Username</button>
+        <button className='create-post'
+        type="submit">Change Username</button>
       </form>
       {/* Update Password */}
       <form
+      className='routine-all'
         onSubmit={async (e) => {
           e.preventDefault();
           handleChangePassword();
@@ -76,29 +79,32 @@ const Logout = () => {
           <h3>Unable to change password: {passwordError}</h3>
         ) : null}
         <input
-          // className='create-description'
+          className='create-name'
           type="text"
           placeholder="Password"
           value={passwordState}
           onChange={(event) => setPasswordState(event.target.value)}
           required
         />
-        <button type="submit">Change Password</button>
+        <button className='create-post'
+        type="submit">Change Password</button>
         {passwordSuccess ? (
           <h3>Successfully changed password!</h3>
         ) : null}
       </form>
       {/* Logout */}
       <form
+      className='routine-all'
         onSubmit={async (e) => {
           e.preventDefault();
           handleLogOut();
           navigate("/");
         }}
       >
-        <button type="submit">Log Out</button>
+        <button className='remove-post'
+        type="submit">Log Out</button>
       </form>
-    </>
+    </div>
   );
 };
 

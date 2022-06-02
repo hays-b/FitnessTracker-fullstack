@@ -51,15 +51,19 @@ const UpdateActivity = ({ activity }) => {
           handleUpdateActivity();
         }}
       >
+        <div className="pub-priv">
+          <input
+            className="create-name"
+            type="text"
+            placeholder={activity.name}
+            value={updateState.name}
+            onChange={(event) =>
+              setUpdateState({ ...updateState, name: event.target.value })
+            }
+          />
+        </div>
         <input
-          type="text"
-          placeholder={activity.name}
-          value={updateState.name}
-          onChange={(event) =>
-            setUpdateState({ ...updateState, name: event.target.value })
-          }
-        />
-        <input
+          className="create-description"
           type="text"
           placeholder={activity.description}
           value={updateState.description}
@@ -71,6 +75,7 @@ const UpdateActivity = ({ activity }) => {
           <div>
             <label htmlFor="sets">Sets: </label>
             <input
+              className="inner-input"
               name="sets"
               type="text"
               placeholder={activity.sets}
@@ -83,6 +88,7 @@ const UpdateActivity = ({ activity }) => {
           <div>
             <label htmlFor="reps">Reps: </label>
             <input
+              className="inner-input"
               name="reps"
               type="text"
               placeholder={activity.reps}
@@ -95,6 +101,7 @@ const UpdateActivity = ({ activity }) => {
           <div>
             <label htmlFor="duration">Duration: </label>
             <input
+              className="inner-input"
               name="duration"
               type="text"
               placeholder={activity.duration}
@@ -105,7 +112,9 @@ const UpdateActivity = ({ activity }) => {
             />
           </div>
         </div>
-        <button type="submit">Update Activity</button>
+        <button className="update-post" type="submit">
+          Update Activity
+        </button>
       </form>
     </>
   );
