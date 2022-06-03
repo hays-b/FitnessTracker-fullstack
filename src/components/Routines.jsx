@@ -9,7 +9,7 @@ const Routines = () => {
   return (
     <>
       <SearchBar />
-      <div id="routineList" className="routine-col">
+      <div className="routine-col">
         <h1>Public Routines</h1>
         {Array.isArray(filterRoutines) && filterRoutines.length ? (
           filterRoutines.map((routine, idx) => (
