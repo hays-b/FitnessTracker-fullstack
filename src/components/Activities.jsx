@@ -68,7 +68,7 @@ const Activities = () => {
         </>
       ) : null}
         <h1>All Activities</h1>
-      <div id="activityList" className="activity-row">
+      <div className="activity-row">
         {Array.isArray(filterActivities) && filterActivities.length ?filterActivities.map((activity, idx) => (
           <div key={"activity" + idx} className="activity-all">
             <div className="activity-card">
