@@ -22,6 +22,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
+    "start": "node index.js",
     "postinstall": "npm run client:build",
     "db:seed": "node ./db/seed.js",
     "server:dev": "nodemon ./index.js",
