@@ -30,7 +30,7 @@ app.use(cors());
 
 // here's our static files
 const path = require('path');
-server.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 // here's our API
 app.use('/api', apiRouter);
