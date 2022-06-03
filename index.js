@@ -28,11 +28,14 @@ client.connect()
 // allows api test specs to see the server
 app.use(cors());
 
+// here's our static files
+const path = require('path');
+server.use(express.static(path.join(__dirname, 'build')));
+
 // here's our API
 app.use('/api', apiRouter);
 
 // by default serve up the react app if we don't recognize the route
-const path = require('path');
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });

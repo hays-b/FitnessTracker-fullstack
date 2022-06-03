@@ -2,6 +2,7 @@
   "name": "fitnesstracker",
   "version": "0.1.0",
   "description": "",
+  "homepage": "https://fitness-tracker-react-app.herokuapp.com/",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
