@@ -63,7 +63,7 @@ const UpdateActivity = ({ activity }) => {
           />
         </div>
         <input
-          className="create-description"
+          className="create-description activity-description"
           type="text"
           placeholder={activity.description}
           value={updateState.description}

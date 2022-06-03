@@ -1,25 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Header = () => {
-    const { token } = useAuth();
+  const { token } = useAuth();
   let location = useLocation();
+  const [navToggle, setNavToggle] = useState(false)
 
 
   return (
     <header className="header">
-        {/* <h3>Welcome to Fitness Tracker, {user.username || 'guest'}!</h3> */}
+      {/* <h3>Welcome to Fitness Tracker, {user.username || 'guest'}!</h3> */}
+      <div className={navToggle ? "nav-menu" : "nav-menu hidden"}>
         <Link
           to="/"
           className={location.pathname === "/" ? "active link" : "link"}
+          onClick={()=>{setNavToggle(false)}}
         >
           Home
         </Link>
         <Link
           to="/routines"
           className={location.pathname === "/routines" ? "active link" : "link"}
+          onClick={()=>{setNavToggle(false)}}
         >
           Routines
         </Link>
@@ -28,6 +32,7 @@ const Header = () => {
           className={
             location.pathname === "/activities" ? "active link" : "link"
           }
+          onClick={()=>{setNavToggle(false)}}
         >
           Activities
         </Link>
@@ -38,6 +43,7 @@ const Header = () => {
               className={
                 location.pathname === "/myroutines" ? "active link" : "link"
               }
+              onClick={()=>{setNavToggle(false)}}
             >
               MyRoutines
             </Link>
@@ -46,6 +52,7 @@ const Header = () => {
               className={
                 location.pathname === "/logout" ? "active link" : "link"
               }
+              onClick={()=>{setNavToggle(false)}}
             >
               Account
             </Link>
@@ -57,6 +64,7 @@ const Header = () => {
               className={
                 location.pathname === "/login" ? "active link" : "link"
               }
+              onClick={()=>{setNavToggle(false)}}
             >
               Login
             </Link>
@@ -65,12 +73,22 @@ const Header = () => {
               className={
                 location.pathname === "/signup" ? "active link" : "link"
               }
+              onClick={()=>{setNavToggle(false)}}
             >
               Signup
             </Link>
           </>
         )}
-      </header>
+      </div>
+      <div className="hamburger" onClick={() => {
+        if (navToggle) {
+          setNavToggle(false)
+        } else {
+          setNavToggle(true)
+        }
+        console.log(navToggle)
+      }}>Hamburger</div>
+    </header>
   );
 };
 

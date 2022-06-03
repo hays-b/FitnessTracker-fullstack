@@ -100,6 +100,9 @@ const Logout = () => {
           handleLogOut();
           navigate("/");
         }}
+        required
+        pattern=".{8,}"
+        title="8 characters minimum"
       >
         <button className='remove-post'
         type="submit">Log Out</button>
