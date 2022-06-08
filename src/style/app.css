@@ -18,7 +18,7 @@ h1 {
   box-shadow: 0.1em 0 0.1em black;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   z-index: 1;
 }
 
@@ -54,6 +54,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 100%;
+  margin-right: 3em;
   /* display: none; */
 }
 
@@ -279,8 +280,8 @@ button {
 }
 
 .header-img {
-  position: fixed;
-  left: 1em;
+  position: relative;
+  left: 2.5em;
   /* margin: 1em; */
   width: 3.5em;
 }
@@ -531,6 +532,7 @@ button {
 
 @media only screen and (max-width: 768px) {
   .nav-menu {
+    margin-right: 0;
     border-radius: 5px;
     display: flex;
     justify-content: flex-start;
@@ -553,10 +555,11 @@ button {
   }
   .hamburger-ctn {
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
+    justify-self: right;
     align-self: center;
     justify-content: right;
-    
+    margin-right: 1em;
   }
   .hamburger {
     display: flex;
