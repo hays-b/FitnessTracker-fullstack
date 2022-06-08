@@ -1,5 +1,6 @@
 h1 {
   color: rgb(59, 88, 75);
+  text-align: center;
 }
 
 .header {
@@ -28,6 +29,7 @@ a {
 }
 
 .link {
+  font-weight: 500;
   display: inherit;
   color: black;
   font-size: 1rem;

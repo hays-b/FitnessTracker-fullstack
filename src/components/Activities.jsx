@@ -73,7 +73,7 @@ const Activities = () => {
           <div key={"activity" + idx} className="activity-all">
             <div className="activity-card">
               <div className='routine-name'>{activity.name}</div>
-              <div className='routine-goal'>{activity.description}</div>
+              <p>{activity.description}</p>
               {/* <h2>Count: {activity.count}</h2>
             <h3>Duration: {activity.duration}</h3> */}
             </div>
