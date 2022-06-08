@@ -91,11 +91,11 @@ const MyRoutines = () => {
                 <div key={"myRoutines" + idx} className="routine-all">
                   <div className="routine-card single-card">
                     <div className="pub-priv">
-                      <h1>{routine.name}</h1>
+                      <h2>{routine.name}</h2>
                       <h4>{routine.isPublic ? "Public" : "Private"}</h4>
                     </div>
-                    <h2>{routine.goal}</h2>
-                    <h3>Activities:</h3>
+                    <h3>{routine.goal}</h3>
+                    <h4>Activities:</h4>
                     {/* if the routine has activities, map and display them too */}
                     {routine.activities ? (
                       <>

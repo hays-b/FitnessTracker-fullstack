@@ -23,7 +23,7 @@ const Routines = ({ routine }) => {
         <div className="routine-all">
         <Link to={`/user=${routine.creatorId}`} className='routine-creator'>Created by: {routine.creatorName}</Link>
           <div className="routine-card single-card">
-            <h1>{routine.name}</h1>
+            <h2>{routine.name}</h2>
             <h4>{routine.goal}</h4>
             <h3>Activities:</h3>
             <div className="activity-row">
