@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import logo from '../assets/heart-logo.png'
 
 const Header = () => {
   const { token } = useAuth();
@@ -11,8 +12,9 @@ const Header = () => {
 
   return (
     <header className="header">
-      {/* <h3>Welcome to Fitness Tracker, {user.username || 'guest'}!</h3> */}
-      <img className='header-img' src="https://i.imgur.com/arzXgMz.png" alt="Happiness" width='500px'/>
+      <Link to='/'>
+      <img className='header-img' src={logo} alt="Logo" width='500px'/>
+        </Link>
       <div className={navToggle ? "nav-menu" : "nav-menu hidden"}>
         <Link
           to="/"
