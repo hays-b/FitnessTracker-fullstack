@@ -12,6 +12,7 @@ const Header = () => {
   return (
     <header className="header">
       {/* <h3>Welcome to Fitness Tracker, {user.username || 'guest'}!</h3> */}
+      <img className='header-img' src="https://i.imgur.com/arzXgMz.png" alt="Happiness" width='500px'/>
       <div className={navToggle ? "nav-menu" : "nav-menu hidden"}>
         <Link
           to="/"
@@ -45,7 +46,7 @@ const Header = () => {
               }
               onClick={()=>{setNavToggle(false)}}
             >
-              MyRoutines
+              My Routines
             </Link>
             <Link
               to="/logout"
@@ -79,6 +80,7 @@ const Header = () => {
             </Link>
           </>
         )}
+        <div />
       </div>
       <div className='hamburger-ctn'>
       <div className="hamburger" onClick={() => {

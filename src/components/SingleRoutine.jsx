@@ -41,7 +41,7 @@ const Routines = ({ routine }) => {
                 </div>
               ))}
             </div>
-              <h3>Estimated Time: {estimatedTime} min</h3>
+              <h4 className='est-time'>Estimated Time: {estimatedTime} min</h4>
           </div>
         </div>
       </div>
