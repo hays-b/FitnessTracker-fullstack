@@ -66,6 +66,8 @@ input {
 select {
   border: 1px solid gray;
   border-radius: 5px;
+  background-color: white;
+  color: black;
 }
 
 .routine-col {
@@ -82,8 +84,8 @@ select {
   border: none;
   color: gray;
   padding: 1em;
-  border-right: 0.1em solid gray;
-  border-radius: 0.1em;
+  border-right: 1px solid gray;
+  border-radius: 0;
   margin: 0.25em;
   z-index: 0;
 }
@@ -98,7 +100,7 @@ select {
 }
 
 .routine-card {
-  border-radius: 0.1em;
+  border-radius: 5px;
   margin: 1em 0;
   padding: 1em 1em;
   background-color: rgb(232, 239, 237);
@@ -134,8 +136,8 @@ select {
     rgb(255, 255, 255) 100%
   );
   /* box-shadow: 0 0 0.1em black; */
-  border: 0.1vmin solid black;
-  border-radius: 1vmin;
+  border: 1px solid gray;
+  border-radius: 5px;
   /* flex-grow: 1; */
   /* height: 100%; */
   width: 30%;
@@ -153,8 +155,8 @@ select {
     rgb(255, 255, 255) 100%
   );
   /* box-shadow: 0 0 0.1em black; */
-  border: 0.1vmin solid black;
-  border-radius: 1vmin;
+  border: 1px solid black;
+  border-radius: 5px;
   height: 100%;
   padding: 0.5em;
   margin: 1em;
@@ -272,26 +274,31 @@ select {
 }
 
 .searchbar-input {
-  border-radius: 0;
+  /* border-radius: 0; */
   width: 75%;
-  padding: 0.5em;
+  height: 2.5em;
   display: flex;
   /* box-shadow: 0 0 0.1em black; */
   /* border: none; */
 }
 
 .searchbar-btn {
-  margin-left: 0.075em;
-  padding: 0.4em 2em;
+  margin-left: 0.25em;
+  height: 2.5em;
+  padding: 0 2em;
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(159, 239, 203);
   background: linear-gradient(
     180deg,
     rgb(159, 239, 203) 0%,
     rgb(186, 238, 215) 100%
   );
-  box-shadow: 0 0 0.1em black;
-  border: none;
+  /* box-shadow: 0 0 0.1em black; */
+  /* border: none; */
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 
 .searchbar-btn:hover {
@@ -321,8 +328,8 @@ select {
     rgb(232, 239, 237) 0%,
     rgb(255, 255, 255) 100%
   );
-  border: 0.1vmin solid black;
-  border-radius: 1vmin;
+  border: 1px solid black;
+  border-radius: 5px;
   height: 95%;
   padding: 0.5em;
   margin: 2em;
@@ -403,8 +410,8 @@ select {
     rgb(255, 255, 255) 100%
   );
   /* box-shadow: 0 0 0.1em black; */
-  border: 0.1vmin solid black;
-  border-radius: 1vmin;
+  border: 1px solid black;
+  border-radius: 5px;
   height: 100%;
   width: 100%;
   padding: 0.5em;
