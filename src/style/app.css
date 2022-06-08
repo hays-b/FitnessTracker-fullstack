@@ -53,14 +53,20 @@ a {
   /* display: none; */
 }
 
-.hamburger {
-  position: fixed;
-  right: 1em;
-  align-self: center;
+.hamburger-ctn {
   display: none;
 }
 
 /* -------------------- Header End ----------------------- */
+input {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+select {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
 
 .routine-col {
   display: flex;
@@ -250,11 +256,9 @@ a {
   padding: 0 0.1em 0 0;
 }
 
-img {
+.img {
   display: flex;
-  flex-grow: 1;
-  margin-top: 1.5vh;
-  /* border: 5rem; */
+  width: 75vmin;
 }
 
 .searchbar {
@@ -268,17 +272,17 @@ img {
 }
 
 .searchbar-input {
+  border-radius: 0;
   width: 75%;
-  /* flex-grow: 1; */
   padding: 0.5em;
   display: flex;
-  box-shadow: 0 0 0.1em black;
-  border: none;
+  /* box-shadow: 0 0 0.1em black; */
+  /* border: none; */
 }
 
 .searchbar-btn {
   margin-left: 0.075em;
-  padding: 0.3em 2em;
+  padding: 0.4em 2em;
   display: flex;
   background-color: rgb(159, 239, 203);
   background: linear-gradient(
@@ -510,9 +514,25 @@ button {
   .hidden {
     display: none;
   }
+  .hamburger-ctn {
+    display: flex;
+    flex-grow: 1;
+    justify-self: center;
+    align-self: center;
+    justify-content: right;
+    
+  }
   .hamburger {
-    display: block;
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
+    margin: 2em;
+  }
+  .hamburger-line {
+    margin: .15em;
+    background-color: rgb(59, 88, 75);
+    width: 2em;
+    height: .2em;
   }
 }
 

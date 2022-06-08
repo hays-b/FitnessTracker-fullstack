@@ -80,6 +80,7 @@ const Header = () => {
           </>
         )}
       </div>
+      <div className='hamburger-ctn'>
       <div className="hamburger" onClick={() => {
         if (navToggle) {
           setNavToggle(false)
@@ -87,7 +88,12 @@ const Header = () => {
           setNavToggle(true)
         }
         console.log(navToggle)
-      }}>Hamburger</div>
+      }}>
+        <div className='hamburger-line' />
+        <div className='hamburger-line' />
+        <div className='hamburger-line' />
+      </div>
+      </div>
     </header>
   );
 };
