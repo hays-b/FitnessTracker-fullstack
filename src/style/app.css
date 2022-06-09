@@ -278,8 +278,8 @@ button {
 }
 
 .img {
-  display: flex;
-  width: 75vmin;
+  width: 70vmin;
+  margin-top: 4em;
 }
 
 .header-img {
