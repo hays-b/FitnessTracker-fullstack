@@ -12,7 +12,8 @@ import {
   Activities,
   SingleRoutine,
   UserRoutines,
-  EditRoutine
+  EditRoutine,
+  PageNotFound,
 } from "./components";
 
 import useAuth from "./hooks/useAuth";
@@ -32,6 +33,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
+        <Route path='*' element={<PageNotFound />} />
         {Array.isArray(routines)
           ? routines?.map((routine, idx) => (
               <Route

@@ -9,3 +9,4 @@ export { default as Header } from "./Header";
 export { default as SingleRoutine } from "./SingleRoutine";
 export { default as UserRoutines } from "./UserRoutines";
 export { default as EditRoutine } from "./EditRoutine";
+export { default as PageNotFound } from "./PageNotFound";
