@@ -1,4 +1,4 @@
-This repo is a template for a workout sharing site where users can post their own routines for the community to see. It can be viewed [here](https://fitness-tracker-react-app.herokuapp.com/).
+This repo is a template for a workout sharing site where users can post their own routines for the community to see. It can be viewed at [fitness-tracker-react-app.herokuapp.com](https://fitness-tracker-react-app.herokuapp.com/).
 
 ## Tech stack
 
@@ -7,7 +7,6 @@ This repo is a template for a workout sharing site where users can post their ow
 - Node.js
 - PostgreSQL
 - Heroku
-- React-Toastify
 - Bcrypt
 - JSON Web Token
 
