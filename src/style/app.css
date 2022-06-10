@@ -633,6 +633,7 @@ button {
   }
   .home-card {
     position: absolute;
+    margin: 0;
   }
 }
 
