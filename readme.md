@@ -7,7 +7,6 @@ This repo is a template for a workout sharing site where users can post their ow
 - Node.js
 - PostgreSQL
 - Heroku
-- Bcrypt
 - JSON Web Token
 
 ## Collaborators
