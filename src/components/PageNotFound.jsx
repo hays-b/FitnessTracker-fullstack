@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import happiness from "../assets/happiness.png";
+import happiness from "../assets/happiness.jpg";
 
 const Home = () => {
   return (

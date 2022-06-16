@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import bicep from '../assets/fitness-logo.png'
 import runner from '../assets/running-heart.png'
+import bicep from '../assets/bicep-heart.png'
 import useAuth from "../hooks/useAuth";
 
 const Home = () => {
