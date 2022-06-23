@@ -1,4 +1,4 @@
-// create the express server here
+// creating the express server
 const express = require("express");
 const cors = require("cors");
 const app = express();

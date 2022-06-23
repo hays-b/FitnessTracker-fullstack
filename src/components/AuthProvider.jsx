@@ -18,7 +18,6 @@ const AuthProvider = ({ children }) => {
     const localStorageToken = localStorage.getItem("token");
     if (localStorageToken) {
       setToken(localStorageToken);
-      // console.log("fetched token", localStorageToken)
     }
   }, [token]);
 
@@ -31,7 +30,6 @@ const AuthProvider = ({ children }) => {
           id: result.id,
           username: result.username,
         });
-        // console.log("fetched user", result)
       }
     };
     getMyUserFunction();
@@ -42,7 +40,6 @@ const AuthProvider = ({ children }) => {
     const displayRoutines = async () => {
       const data = await getPublicRoutines();
       setRoutines(data);
-      // console.log("fetched routines", data)
     };
     displayRoutines();
   }, []);
@@ -52,7 +49,6 @@ const AuthProvider = ({ children }) => {
     const displayUsers = async () => {
       const data = await getAllUsers();
       setUsers(data);
-      // console.log("fetched users", data)
     };
     displayUsers();
   }, []);

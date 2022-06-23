@@ -61,7 +61,6 @@ a {
   align-items: center;
   height: 100%;
   margin-right: 3em;
-  /* display: none; */
 }
 
 .hamburger-ctn {
@@ -142,7 +141,6 @@ button {
 }
 
 .back-btn {
-  /* position: sticky; */
   border: none;
   color: gray;
   padding: 1em;
@@ -197,12 +195,8 @@ button {
     rgb(239, 243, 242) 0%,
     rgb(255, 255, 255) 100%
   );
-  /* box-shadow: 0 0 0.1em black; */
-  /* border: 1px solid gray; */
   box-shadow: inset 0 0 0.1em black;
   border-radius: 5px;
-  /* flex-grow: 1; */
-  /* height: 100%; */
   width: 30%;
   padding: 0.5em;
   margin: 1em;
@@ -217,8 +211,6 @@ button {
     rgb(239, 243, 242) 0%,
     rgb(255, 255, 255) 100%
   );
-  /* box-shadow: 0 0 0.1em black; */
-  /* border: 1px solid black; */
   box-shadow: inset 0 0 0.1em black;
   border-radius: 5px;
   height: 100%;
@@ -282,7 +274,6 @@ button {
   width: 70%;
   margin: 0.5em;
   padding: 0.5em;
-  /* border: .1em solid black; */
   align-self: center;
   text-align: center;
   background-color: rgb(159, 239, 203);
@@ -336,7 +327,6 @@ button {
   border-radius: 5px;
   position: relative;
   left: 2.5em;
-  /* margin: 1em; */
   width: 3.5em;
 }
 
@@ -351,12 +341,9 @@ button {
 }
 
 .searchbar-input {
-  /* border-radius: 0; */
   width: 75%;
   height: 2.5em;
   display: flex;
-  /* box-shadow: 0 0 0.1em black; */
-  /* border: none; */
 }
 
 .searchbar-btn {
@@ -372,8 +359,6 @@ button {
     rgb(159, 239, 203) 0%,
     rgb(186, 238, 215) 100%
   );
-  /* box-shadow: 0 0 0.1em black; */
-  /* border: none; */
   border: 1px solid gray;
   border-radius: 5px;
 }
@@ -486,8 +471,6 @@ button {
     rgb(239, 243, 242) 0%,
     rgb(255, 255, 255) 100%
   );
-  /* box-shadow: 0 0 0.1em black; */
-  /* border: 1px solid black; */
   box-shadow: inset 0 0 0.1em black;
   border-radius: 5px;
   height: 100%;
@@ -609,11 +592,9 @@ button {
   }
   .hidden {
    right: -100%;
-    /* display: none; */
   }
   .hamburger-ctn {
     display: flex;
-    /* width: 100vw; */
     justify-self: right;
     align-self: center;
     justify-content: right;

@@ -86,5 +86,4 @@ module.exports = {
   getActivityById,
   getAllActivities,
   updateActivity,
-  // attachActivitiesToRoutines,
 };

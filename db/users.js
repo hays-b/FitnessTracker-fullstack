@@ -109,8 +109,6 @@ async function getUserByUsername(username) {
 
     if (!user) return null;
 
-    // console.log("this is our selected user", user)
-
     return user;
   } catch (error) {
     throw error;

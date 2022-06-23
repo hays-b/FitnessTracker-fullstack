@@ -27,7 +27,6 @@ const Activities = () => {
                 formState.description
                 );
                 if (result.message) {
-                  console.log("error", result);
                   setCustomError(result.message);
                 } else {
                   setCustomError("");
@@ -74,8 +73,6 @@ const Activities = () => {
             <div className="activity-card">
               <div className='routine-name'>{activity.name}</div>
               <p>{activity.description}</p>
-              {/* <h2>Count: {activity.count}</h2>
-            <h3>Duration: {activity.duration}</h3> */}
             </div>
           </div>
         )): <p>Sorry! We couldn't find what you were looking for.</p>}

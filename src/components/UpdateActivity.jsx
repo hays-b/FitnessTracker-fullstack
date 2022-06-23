@@ -20,21 +20,19 @@ const UpdateActivity = ({ activity }) => {
   });
 
   const handleUpdateActivity = async () => {
-    const result = await updateActivity(
+    const Actresult = await updateActivity(
       token,
       activity.id,
       updateState.name,
       updateState.description
     );
-    const otherResult = await updateRoutineActivity(
+    const RouActResult = await updateRoutineActivity(
       activity.routineActivityId,
       token,
       updateState.sets,
       updateState.reps,
       updateState.duration
     );
-
-    console.log(result + otherResult);
 
     const newActivities = await getAllActivities();
     const newMyRoutines = await getMyRoutines(user.username, token);

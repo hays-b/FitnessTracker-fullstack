@@ -1,6 +1,5 @@
 const client = require("./client");
 
-// const { attachActivitiesToRoutines } = require("./activities");
 const { mapActivities } = require("./utils");
 
 async function createRoutine({ creatorId, isPublic, name, goal }) {

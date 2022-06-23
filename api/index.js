@@ -1,8 +1,4 @@
-// create an api router
-// attach other routers from files in this api directory (users, activities...)
-// export the api router
-
-// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsYmVydCIsImlkIjoxLCJpYXQiOjE2NTAwNDUxNzh9.TNXmxK-atqBChAOrvNbjsVaTLnIoXGK624D3sCEqiwA"
+// This file is creating an api router, attaching other routers from files in this api directory, and exporting the api router
 
 const express = require("express");
 const apiRouter = express.Router();
@@ -70,7 +66,6 @@ apiRouter.use("/routine_activities", routineActivitiesRouter);
 
 // error handler
 apiRouter.use((error, req, res, next) => {
-  // console.log("in the error handler", {error})
   res.send({
     name: error.name,
     message: error.message,

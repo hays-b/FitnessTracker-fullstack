@@ -20,7 +20,6 @@ import useAuth from "./hooks/useAuth";
 
 function App() {
   const { routines, myRoutines, users } = useAuth();
-  // console.log(myRoutines)
 
   return (
     <>

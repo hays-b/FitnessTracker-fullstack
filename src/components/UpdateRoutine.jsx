@@ -41,10 +41,8 @@ const UpdateRoutine = ({ routine }) => {
         activityToAdd.duration,
         token
       );
-      console.log(activityResult);
     }
     if (result.message) {
-      console.log("error", result);
       setUpdateError(result.message);
     } else {
       setUpdateError("");

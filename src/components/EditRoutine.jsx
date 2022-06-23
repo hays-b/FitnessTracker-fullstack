@@ -64,21 +64,23 @@ const EditRoutine = ({ routine }) => {
                         {idx + 1}: {activity.name}{" "}
                       </h4>
                       <div className="update-routine">
-
-                      <UpdateActivity routine={routine} activity={activity} />
-                      
-                      {/* <div className='update-routine'> */}
-                          <button
-                      className='remove-post'
-                        onClick={() => handleActivityRemoval(routine, activity)}
-                      >
-                        Remove Activity
-                      </button>
+                        <UpdateActivity routine={routine} activity={activity} />
+                        <button
+                          className="remove-post"
+                          onClick={() =>
+                            handleActivityRemoval(routine, activity)
+                          }
+                        >
+                          Remove Activity
+                        </button>
                       </div>
                     </div>
                   ))}
                 </div>
-                <button className='remove-post centered'onClick={() => handleRoutineDelete(routine)}>
+                <button
+                  className="remove-post centered"
+                  onClick={() => handleRoutineDelete(routine)}
+                >
                   Delete Routine
                 </button>
               </>

@@ -12,8 +12,6 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [customError, setCustomError] = useState("");
 
-  // const history = useHistory();
-
   return (
     <div className='routine-col'>
       <form
@@ -22,9 +20,7 @@ const Register = () => {
           e.preventDefault();
 
           const result = await registerUser(username, password);
-          console.log(result.token);
           if (result.name) {
-            console.log("error", result);
             setCustomError(result.message);
           } else {
             localStorage.setItem("token", result.token);

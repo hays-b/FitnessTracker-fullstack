@@ -21,10 +21,8 @@ const Login = () => {
 
           const result = await loginUser(username, password);
           if (result.name) {
-            console.log("error", result);
             setCustomError(result.message);
           } else {
-            console.log("error", result);
             localStorage.setItem("token", result.token);
             setToken(result.token);
 

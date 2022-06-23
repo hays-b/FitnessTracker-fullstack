@@ -91,7 +91,6 @@ const Header = () => {
         } else {
           setNavToggle(true)
         }
-        console.log(navToggle)
       }}>
         <div className='hamburger-line' />
         <div className='hamburger-line' />
